@@ -13,6 +13,7 @@
 		30FFC372222304630087C8E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FFC370222304630087C8E4 /* LaunchScreen.storyboard */; };
 		30FFC37C222308FB0087C8E4 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFC37B222308FB0087C8E4 /* ImageViewController.swift */; };
 		30FFC382222351860087C8E4 /* ImagePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFC381222351860087C8E4 /* ImagePhotoCell.swift */; };
+		30FFC384222448780087C8E4 /* LargeImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFC383222448780087C8E4 /* LargeImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		30FFC373222304630087C8E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30FFC37B222308FB0087C8E4 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		30FFC381222351860087C8E4 /* ImagePhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePhotoCell.swift; sourceTree = "<group>"; };
+		30FFC383222448780087C8E4 /* LargeImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				30FFC367222304620087C8E4 /* AppDelegate.swift */,
 				30FFC36B222304620087C8E4 /* Main.storyboard */,
+				30FFC383222448780087C8E4 /* LargeImageViewController.swift */,
 				30FFC37B222308FB0087C8E4 /* ImageViewController.swift */,
 				30FFC381222351860087C8E4 /* ImagePhotoCell.swift */,
 				30FFC36E222304630087C8E4 /* Assets.xcassets */,
@@ -140,6 +143,7 @@
 			files = (
 				30FFC382222351860087C8E4 /* ImagePhotoCell.swift in Sources */,
 				30FFC368222304620087C8E4 /* AppDelegate.swift in Sources */,
+				30FFC384222448780087C8E4 /* LargeImageViewController.swift in Sources */,
 				30FFC37C222308FB0087C8E4 /* ImageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
