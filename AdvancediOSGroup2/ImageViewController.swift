@@ -43,20 +43,40 @@ extension ImageViewController : UIImagePickerControllerDelegate, UINavigationCon
 // MARK: - UICollectionViewDataSource
 extension ImageViewController {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return images.count
+        return 1
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+            return images.count
+        
+        }
     
     override func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
         ) -> UICollectionViewCell {
-        let cell = collectionView
-            .dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        cell.backgroundColor = .black
-        // Configure the cell
+        //1
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
+                                                      for: indexPath) as! ImagePhotoCell
+        //2
+        let image = photo(for: indexPath)
+        cell.backgroundColor = .white
+        //3
+        cell.imageView.image = image
+        
         return cell
     }
     
+}
+
+// MARK: - Private
+private extension ImageViewController {
+    func photo(for indexPath: IndexPath) -> UIImage {
+        // OLD CODE
+        //return searches[indexPath.section].searchResults[indexPath.row]
+        return images[indexPath.section]
+    }
 }
 
 // MARK: - Collection View Flow Layout Delegate
