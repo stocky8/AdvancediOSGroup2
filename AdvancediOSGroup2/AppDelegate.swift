@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  GroupProject
+//  AdvancediOSGroup2
 //
-//  Created by Derik Sarauer on 2/20/19.
-//  Copyright © 2019 CVTC Derik Sarauer. All rights reserved.
+//  Created by Benjamin Miles on 2/24/19.
+//  Copyright © 2019 Benjamin Miles. All rights reserved.
 //
 
 import UIKit
