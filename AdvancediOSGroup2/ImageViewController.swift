@@ -43,14 +43,16 @@ extension ImageViewController : UIImagePickerControllerDelegate, UINavigationCon
 // MARK: - UICollectionViewDataSource
 extension ImageViewController {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        
         return 1
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-            return images.count
+        return images.count
         
-        }
+    }
     
     override func collectionView(
         _ collectionView: UICollectionView,
@@ -74,7 +76,7 @@ extension ImageViewController {
 private extension ImageViewController {
     func photo(for indexPath: IndexPath) -> UIImage {
 
-        return images[indexPath.section]
+        return images[indexPath.row]
     
     }
 }
