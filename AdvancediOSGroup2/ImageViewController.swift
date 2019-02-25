@@ -56,13 +56,13 @@ extension ImageViewController {
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
         ) -> UICollectionViewCell {
-        //1
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
                                                       for: indexPath) as! ImagePhotoCell
-        //2
+        
         let image = photo(for: indexPath)
         cell.backgroundColor = .white
-        //3
+
         cell.imageView.image = image
         
         return cell
@@ -73,9 +73,9 @@ extension ImageViewController {
 // MARK: - Private
 private extension ImageViewController {
     func photo(for indexPath: IndexPath) -> UIImage {
-        // OLD CODE
-        //return searches[indexPath.section].searchResults[indexPath.row]
+
         return images[indexPath.section]
+    
     }
 }
 
