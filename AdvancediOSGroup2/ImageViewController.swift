@@ -8,23 +8,80 @@
 
 import UIKit
 
-class ImageViewController: UIViewController {
+private let reuseIdentifier = "ImageCell"
+private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+private let itemsPerRow: CGFloat = 3
+private var images: [UIImage] = []
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+class ImageViewController: UICollectionViewController {
 
-        // Do any additional setup after loading the view.
+    @IBAction func photoButton(_ sender: UIBarButtonItem) {
+        takePhotoWithCamera()
+        
+    }
+}
+
+extension ImageViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    // MARK:- Image helper Methods
+    func takePhotoWithCamera() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType  = .camera
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        images.append(info[UIImagePickerController.InfoKey.editedImage] as! UIImage)
+        dismiss(animated: true, completion: nil)
+        self.collectionView?.reloadData()
+        print("Took A Photo")
     }
-    */
+}
 
+// MARK: - UICollectionViewDataSource
+extension ImageViewController {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return images.count
+    }
+    
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+        ) -> UICollectionViewCell {
+        let cell = collectionView
+            .dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        cell.backgroundColor = .black
+        // Configure the cell
+        return cell
+    }
+    
+}
+
+// MARK: - Collection View Flow Layout Delegate
+extension ImageViewController : UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+        
+        return CGSize(width: widthPerItem, height: widthPerItem)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInsets.left
+    }
 }
