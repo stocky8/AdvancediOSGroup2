@@ -105,9 +105,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mGf-4C-guf"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="n4V-Jx-2Dr"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="uNW-cj-Eik" id="qS2-8F-D66"/>
