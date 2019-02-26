@@ -15,6 +15,7 @@ private var images: [UIImage] = []
 private let SegueLargeImageViewController = "LargeImageViewController"
 
 class ImageViewController: UICollectionViewController {
+    
     struct imageData {
         let imagesArray: [UIImage]
         let selected: Int
@@ -27,8 +28,6 @@ class ImageViewController: UICollectionViewController {
     }
     
     // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if segue.identifier == SegueLargeImageViewController {
@@ -40,6 +39,12 @@ class ImageViewController: UICollectionViewController {
             destinationViewController.index = indexes?.row
         }
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let temp = images.remove(at: sourceIndexPath.item)
+        images.insert(temp, at: destinationIndexPath.item)
+    }
+    
 }
 
 extension ImageViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -99,17 +104,6 @@ private extension ImageViewController {
         return images[indexPath.row]
     
     }
-}
-
-// MARK: - UICollectionViewDelegate
-extension ImageViewController {
-  /*
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-        selectedIndex = indexPath.row
-
-    }
- */
 }
 
 // MARK: - Collection View Flow Layout Delegate
