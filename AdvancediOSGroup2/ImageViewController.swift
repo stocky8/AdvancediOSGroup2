@@ -16,12 +16,6 @@ private let SegueLargeImageViewController = "LargeImageViewController"
 
 class ImageViewController: UICollectionViewController {
     
-    struct imageData {
-        let imagesArray: [UIImage]
-        let selected: Int
-    }
-    
-    
     @IBAction func photoButton(_ sender: UIBarButtonItem) {
         takePhotoWithCamera()
         
