@@ -10,4 +10,14 @@ import UIKit
 
 class Image: NSObject {
 
+    var image: UIImage
+    
+    init(image: UIImage) {
+        
+        self.image = image
+        
+    }
+    
 }
+
+
